@@ -1,0 +1,45 @@
+# ===== PINOS =====
+PIN_GAS = 34
+PIN_DHT = 15
+PIN_BUZZER = 18
+PIN_LED_VERDE = 25
+PIN_LED_AMARELO = 26
+PIN_LED_VERMELHO = 27
+PIN_LCD_SDA = 21
+PIN_LCD_SCL = 22
+
+# ===== LCD I2C =====
+LCD_ADDRESS = 0x27
+LCD_WIDTH = 16
+LCD_HEIGHT = 2
+
+# ===== TEMPERATURA (°C) =====
+TEMP_SAFE_MIN = 20
+TEMP_SAFE_MAX = 30
+TEMP_ATENCAO_MIN = 15
+TEMP_ATENCAO_MAX = 40
+
+# ===== UMIDADE (%) =====
+UMIDADE_SAFE_MIN = 40
+UMIDADE_SAFE_MAX = 80
+
+# ===== GÁS (ppm) =====
+GAS_SEGURO = 1000
+GAS_ATENCAO = 1500
+GAS_CRITICO = 2000
+
+# ===== STATES =====
+STATE_SEGURO = "seguro"
+STATE_ATENCAO = "atencao"
+STATE_CRITICO = "critico"
+
+ESTADO_TEXTO = {
+    STATE_SEGURO: "SEGURO",
+    STATE_ATENCAO: "ATENCAO",
+    STATE_CRITICO: "CRITICO"
+}
+
+# ===== CONTROLE =====
+SENSOR_INTERVAL_MS = 2000  # Leitura a cada 2 segundos
+BUZZER_ON_MS = 500        # Buzzer intermitente: 500ms ligado
+BUZZER_OFF_MS = 500       # Buzzer intermitente: 500ms desligado
