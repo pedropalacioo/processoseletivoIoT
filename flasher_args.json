@@ -16,7 +16,7 @@
     "0x1000": "binaries/bootloader.bin",
     "0x8000": "binaries/partition-table.bin",
     "0x10000": "binaries/micropython.bin",
-    "0x200000": "fs.bin"
+    "0x200000": "binaries/fs.bin"
   },
   "bootloader": {
     "offset": "0x1000",
@@ -35,7 +35,7 @@
   },
   "fs": {
     "offset": "0x200000",
-    "file": "fs.bin",
+    "file": "binaries/fs.bin",
     "encrypted": "false"
   },
   "extra_esptool_args": {

@@ -143,36 +143,19 @@ class AlertSystem:
     
     def control_buzzer_intermitent(self, system_state):
         """
-        Controla o buzzer com padrão intermitente apenas em estado CRITICO
-        
-        Buzzer pisca 500ms on / 500ms off em estado crítico
+        Controla o buzzer - ligado continuamente em estado CRÍTICO até a próxima leitura
         
         Args:
             system_state: Estado do sistema
         """
-        current_time = time.ticks_ms()
-        
         if system_state == STATE_CRITICO:
-            # Calcula tempo desde o último toggle
-            time_since_toggle = time.ticks_diff(current_time, self.buzzer_last_toggle)
-            
-            # Determina o intervalo esperado
-            interval = BUZZER_ON_MS if self.buzzer_state else BUZZER_OFF_MS
-            
-            # Toggle se chegou ao tempo
-            if time_since_toggle >= interval:
-                self.buzzer_state = not self.buzzer_state
-                self.buzzer_last_toggle = current_time
-                
-                if self.buzzer_state:
-                    self.buzzer.on()
-                else:
-                    self.buzzer.off()
+            # Buzzer ligado continuamente em estado crítico
+            self.buzzer.on()
+            self.buzzer_state = True
         else:
             # Desliga buzzer em outros estados
             self.buzzer.off()
             self.buzzer_state = False
-            self.buzzer_last_toggle = time.ticks_ms()
     
     def update_system(self, temp, humidity, gas):
         """

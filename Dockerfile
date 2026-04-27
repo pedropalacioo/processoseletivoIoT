@@ -12,7 +12,7 @@ COPY src/main.py ~/fs/main.py
 COPY src/sensors.py ~/fs/sensors.py
 COPY src/alerts.py ~/fs/alerts.py
 COPY src/config.py ~/fs/config.py
-COPY src/machine.py ~/fs/machine.py
+COPY src/sensor_data.py ~/fs/sensor_data.py
 # COPY boot.py /boot.py
 
 RUN git clone https://github.com/earlephilhower/mklittlefs.git && \

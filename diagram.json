@@ -10,13 +10,6 @@
       "left": -33.56,
       "attrs": { "env": "micropython-20231227-v1.22.0" }
     },
-    {
-      "type": "wokwi-lcd1602",
-      "id": "lcd1",
-      "top": -12.8,
-      "left": 140,
-      "attrs": { "pins": "i2c" }
-    },
     { "type": "wokwi-gas-sensor", "id": "gas1", "top": 2.7, "left": -213.8, "attrs": {} },
     {
       "type": "wokwi-dht22",
@@ -53,15 +46,12 @@
       "top": 140.4,
       "left": 243.8,
       "attrs": { "color": "yellow" }
-    }
+    },
+    { "type": "wokwi-potentiometer", "id": "pot2", "top": 17.9, "left": 182.2, "attrs": {} }
   ],
   "connections": [
     [ "esp:TX", "$serialMonitor:RX", "", [] ],
     [ "esp:RX", "$serialMonitor:TX", "", [] ],
-    [ "lcd1:GND", "esp:GND.2", "black", [ "h0" ] ],
-    [ "lcd1:VCC", "esp:5V", "red", [ "h-9.6", "v182.5", "h-163.2" ] ],
-    [ "lcd1:SDA", "esp:21", "orange", [ "h-19.2", "v29" ] ],
-    [ "lcd1:SCL", "esp:22", "magenta", [ "h-28.8", "v-9.3" ] ],
     [ "gas1:VCC", "esp:3V3", "red", [ "h28.8", "v-29.7" ] ],
     [ "gas1:GND", "esp:GND.2", "black", [ "h38.4", "v-58.4", "h105.6" ] ],
     [ "gas1:AOUT", "esp:34", "orange", [ "h19.2", "v38.4" ] ],
@@ -75,7 +65,10 @@
     [ "led2:A", "esp:27", "cyan", [ "v67.2", "h-384", "v-124.8" ] ],
     [ "led1:C", "esp:GND.2", "black", [ "v9.6", "h-124.4", "v-163.2" ] ],
     [ "led3:C", "esp:GND.2", "black", [ "v19.2", "h-162.8", "v-172.8" ] ],
-    [ "led2:C", "esp:GND.2", "black", [ "v28.8", "h-201.2", "v-192" ] ]
+    [ "led2:C", "esp:GND.2", "black", [ "v28.8", "h-201.2", "v-192" ] ],
+    [ "pot2:VCC", "esp:3V3", "orange", [ "v9.6", "h-116", "v-115.2", "h-144" ] ],
+    [ "pot2:GND", "esp:GND.2", "black", [ "v0", "h-86.4", "v-67.2" ] ],
+    [ "pot2:SIG", "esp:35", "purple", [ "v19.2", "h-86.8", "v-134.4", "h-172.8", "v96" ] ]
   ],
   "dependencies": {}
 }
