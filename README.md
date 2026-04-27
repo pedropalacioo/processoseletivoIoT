@@ -232,8 +232,7 @@ O estado global do sistema é determinado pela **pior condição** entre os trê
 
 A forma mais rápida de ver o sistema funcionando, sem instalar nada:
 
-1. Acesse: [Wokwi Project](https://wokwi.com/)
-2. Importe o arquivo `diagram.json`
+1. Acesse aqui: [Wokwi Project](https://wokwi.com/projects/462423449300362241)
 3. Clique em **Play**
 4. Mova os potenciômetros para simular variações
 5. Observe os LEDs respondendo e acompanhe os logs no terminal
@@ -354,47 +353,7 @@ Este projeto atende aos seguintes requisitos da etapa prática:
 
 ---
 
-## 10. Como Participar do Processo Seletivo
-
-### 1. Criar Conta no GitHub
-Acesse https://github.com e crie sua conta gratuita.
-
-### 2. Fork do Repositório
-Clique em **Fork** no repositório original para criar uma cópia no seu perfil.
-
-### 3. Clone Localmente
-```bash
-git clone https://github.com/SEU_USUARIO/processoseletivoIoT.git
-cd processoseletivoIoT
-```
-
-### 4. Configurar API Key do Wokwi
-1. Acesse https://wokwi.com/dashboard/ci
-2. Gere um API Token
-3. No seu repositório, vá em **Settings** → **Secrets and variables** → **Actions**
-4. Crie um novo secret: Nome: `WOKWI_API_KEY` | Valor: sua chave
-
-### 5. Instalar Dependências (Opcional para Dev Local)
-```bash
-pip install -r requirements.txt
-```
-
-### 6. Desenvolver
-Modifique os arquivos em `src/`, faça testes na simulação Wokwi e ajuste conforme necessário.
-
-### 7. Fazer Commit e Push
-```bash
-git add .
-git commit -m "Descrição das alterações"
-git push
-```
-
-### 8. Validação Automática
-O GitHub Actions executará automaticamente a simulação e validará o projeto. Verifique a aba **Actions** para confirmar que passou (✅).
-
----
-
-## 11. Referências e Recursos
+## 10. Referências e Recursos
 
 - [MicroPython Documentation](https://docs.micropython.org/)
 - [ESP32 Documentation](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/)
