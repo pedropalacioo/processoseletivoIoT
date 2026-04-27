@@ -1,3 +1,4 @@
+print("Teste")
 """
 EnviroGuard - Sistema de Monitoramento de Segurança Industrial (IoT)
 
@@ -8,13 +9,12 @@ Lê constantemente:
 
 Estados do sistema: SEGURO (verde), ATENÇÃO (amarelo), CRÍTICO (vermelho)
 Buzzer toca intermitentemente apenas em estado CRÍTICO
-Display LCD mostra estado e dados dos sensores
+Dados dos sensores são exibidos no terminal
 """
 
 import time
 from sensors import SensorReader
 from alerts import AlertSystem
-from display import LCDDisplay
 from config import SENSOR_INTERVAL_MS
 
 
@@ -29,13 +29,6 @@ def main():
     
     print("Inicializando sistema de alertas...")
     alert_system = AlertSystem()
-    
-    print("Inicializando display LCD...")
-    lcd_display = LCDDisplay()
-    
-    # Exibe mensagem inicial no LCD
-    lcd_display.display_message("EnviroGuard", "Iniciando...")
-    time.sleep(2)
     
     print("Sistema pronto! Iniciando loop de monitoramento...\n")
     
@@ -57,15 +50,11 @@ def main():
                     # Atualiza sistema de alertas (classifica e controla hardware)
                     system_state = alert_system.update_system(temp, humidity, gas)
                     
-                    # Atualiza display LCD
-                    lcd_display.update_display(system_state, temp, humidity, gas)
-                    
-                    # Debug: Imprime valores no console
+                    # Imprime valores no console
                     print(f"Temp: {temp:.1f}°C | Umidade: {humidity:.1f}% | Gás: {gas} | Estado: {system_state.upper()}")
                     
                 except Exception as e:
                     print(f"Erro no ciclo de leitura: {e}")
-                    lcd_display.display_message("Erro!", "Falha nos sensores")
             
             # Controla buzzer intermitente (não bloqueia loop)
             # O buzzer é controlado em update_system, mas precisamos manter responsividade
@@ -77,14 +66,13 @@ def main():
         alert_system.led_verde.off()
         alert_system.led_amarelo.off()
         alert_system.led_vermelho.off()
-        lcd_display.display_message("Sistema", "Desligado")
         print("Sistema desligado com segurança.")
     
     except Exception as e:
         print(f"Erro crítico: {e}")
         alert_system.buzzer.off()
-        lcd_display.display_message("Erro Critico!", str(e)[:16])
 
 
 if __name__ == "__main__":
     main()
+
